@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+//Font
+$font-stack: 'Spartan', sans-serif;
+
+//Color
+$--cyan-desaturated-dark-color: hsl(180, 29%, 50%);
+$--cyan-grayish-light-background-color: hsl(180, 52%, 96%);
+$--cyan-grayish-light-filter-tablets-color: hsl(180, 31%, 95%);
+$--cyan-grayish-dark-color: hsl(180, 8%, 52%);
+$--cyan-grayish-very-dark-color: hsl(180, 14%, 20%);
+$box-shadow-color: 0 15px 35px rgba(91, 164, 164, 0.05), 0 10px 20px rgba(91, 164, 164, 0.15);
