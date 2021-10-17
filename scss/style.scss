@@ -49,9 +49,9 @@ button {
   justify-content: space-between;
   align-items: center;
   position: absolute;
+  top: 12%;
   width: 75%;
-  height: 75px;
-  top: 100px;
+  min-height: 75px;
   background-color: white;
   border-radius: 10px;
   box-shadow: $box-shadow-color;

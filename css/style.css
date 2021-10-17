@@ -13,7 +13,7 @@ button { border: 0; outline: 0; cursor: pointer; padding: 10px; border-radius: 5
 
 .filter__box { display: none; }
 
-.filter__box.show { display: flex; justify-content: space-between; align-items: center; position: absolute; width: 75%; height: 75px; top: 100px; background-color: white; border-radius: 10px; box-shadow: 0 15px 35px rgba(91, 164, 164, 0.05), 0 10px 20px rgba(91, 164, 164, 0.15); }
+.filter__box.show { display: flex; justify-content: space-between; align-items: center; position: absolute; top: 12%; width: 75%; min-height: 75px; background-color: white; border-radius: 10px; box-shadow: 0 15px 35px rgba(91, 164, 164, 0.05), 0 10px 20px rgba(91, 164, 164, 0.15); }
 
 .filter__box.show ul { margin: 0 45px; padding: 0; }
 

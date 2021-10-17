@@ -1,17 +1,74 @@
 'use strict';
 
 const ajax = new XMLHttpRequest();
-const list = document.querySelector('.job__list');
+const filter_box = document.querySelector('.filter__box');
+const filter_list = document.querySelector('.filter__list');
+const filter_clear = document.querySelector('.filter__clear');
+const job_list = document.querySelector('.job__list');
+let tags = [];
 
 function getData() {
   ajax.open('GET', './data.json', false);
   ajax.send();
   return JSON.parse(ajax.response);
 }
-function makeList() {
-  const list_item = getData();
-  const job_list = [];
+
+function makeFilterTemplate() {
+  const list = [];
   let template = '';
+
+  for (let i = 0; i < tags.length; i++) {
+    template = `
+       <li>
+         <button class="btn__filter">${tags[i]}<i class="fas fa-times"></i></button>
+       </li>
+    `;
+    list.push(template);
+  }
+
+  filter_box.classList.add('show');
+  filter_list.innerHTML = list.join('');
+
+  const btn_filters = document.querySelectorAll('.btn__filter');
+  for (const btn_filter of btn_filters) {
+    btn_filter.addEventListener('click', deleteFilter);
+  }
+}
+
+function deleteFilter() {
+  tags.splice(tags.indexOf(this.innerText), 1);
+  if (tags.length === 0) {
+    filter_box.classList.remove('show');
+  } else {
+    makeFilterTemplate();
+  }
+}
+
+function addFilter() {
+  tags.push(this.innerText);
+
+  //Remove duplicates
+  tags = tags.filter((element, index) => {
+    return tags.indexOf(element) === index;
+  });
+
+  makeListTemplate();
+  makeFilterTemplate();
+}
+
+function clearFilter() {
+  tags = [];
+  filter_box.classList.remove('show');
+}
+
+function makeListTemplate() {
+  let list_item = getData();
+  const list = [];
+  let template = '';
+
+  if (tags.length !== 0) {
+    list_item = compareFilterList(list_item);
+  }
 
   for (let i = 0; i < list_item.length; i++) {
     template = `
@@ -21,8 +78,8 @@ function makeList() {
           <div>
             <div>
               <span class="job__name">${list_item[i].company}</span>
-              ${list_item[i].new === 'true' ? '<span class="note note--new">New!</span>' : ''}
-              ${list_item[i].new === 'true' ? '<span class="note note--featured">Featured</span>' : ''}                            
+              ${list_item[i].new === true ? '<span class="note note--new">New!</span>' : ''}
+              ${list_item[i].featured === true ? '<span class="note note--featured">Featured</span>' : ''}                            
             </div>
             <p class="job__position">${list_item[i].position}</p>
             <ul>
@@ -55,12 +112,23 @@ function makeList() {
       </li>
       `;
 
-    job_list.push(template);
+    list.push(template);
   }
 
-  list.innerHTML = job_list.join('');
+  job_list.innerHTML = list.join('');
+
+  const btn_tags = document.querySelectorAll('.btn__tag');
+  for (const btn_tag of btn_tags) {
+    btn_tag.addEventListener('click', addFilter);
+  }
 }
 
-makeList();
+function compareFilterList(list_item) {
+  const job_list_item = list_item.filter((item) => item.role.includes('Frontend'));
 
-const btn_tags = document.querySelectorAll('.btn__tag');
+  return job_list_item;
+}
+
+makeListTemplate();
+
+filter_clear.addEventListener('click', clearFilter);
