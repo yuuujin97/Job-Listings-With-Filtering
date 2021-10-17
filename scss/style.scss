@@ -21,9 +21,84 @@ header {
   }
 }
 
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Spartan', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: $--cyan-desaturated-dark-color;
+  background-color: $--cyan-grayish-light-background-color;
+}
+
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter__box {
+  display: none;
+}
+
+.filter__box.show {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 75%;
+  height: 75px;
+  top: 100px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: $box-shadow-color;
+
+  ul {
+    margin: 0 45px;
+    padding: 0;
+    li {
+      list-style: none;
+      float: left;
+      padding: 10px;
+      button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: default;
+        padding: 0 0 0 10px;
+        line-height: 2.5;
+        i {
+          width: 40px;
+          cursor: pointer;
+          line-height: 2.5;
+          margin-left: 10px;
+          color: white;
+          background-color: $--cyan-desaturated-dark-color;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+        i:hover {
+          background-color: $--cyan-grayish-very-dark-color;
+        }
+      }
+    }
+    li:nth-child(1) {
+      padding-left: 0;
+    }
+  }
+
+  .filter__clear {
+    margin: 0 45px;
+    font-weight: 700;
+    text-decoration: none;
+    color: $--cyan-desaturated-dark-color;
+  }
+  .filter__clear:hover {
+    text-decoration: underline;
+  }
 }
 
 .section__list {
@@ -73,6 +148,10 @@ header {
             font-size: 20px;
             font-weight: 700;
             margin: 10px 0;
+            cursor: pointer;
+          }
+          .job__position:hover {
+            color: $--cyan-desaturated-dark-color;
           }
           ul li {
             float: left;
@@ -91,18 +170,10 @@ header {
           float: left;
           padding: 10px;
           box-shadow: none;
-          button {
-            border: 0;
-            outline: 0;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: 'Spartan', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: $--cyan-desaturated-dark-color;
-            background-color: $--cyan-grayish-light-background-color;
-          }
+        }
+        button:hover {
+          color: white;
+          background-color: $--cyan-desaturated-dark-color;
         }
       }
     }

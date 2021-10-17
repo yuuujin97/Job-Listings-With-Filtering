@@ -7,7 +7,29 @@ header .header__img { width: 100%; height: 100%; }
 
 header .img--mobile { display: none; }
 
-.container { display: flex; justify-content: center; }
+button { border: 0; outline: 0; cursor: pointer; padding: 10px; border-radius: 5px; font-family: 'Spartan', sans-serif; font-size: 15px; font-weight: 700; color: #5ba4a4; background-color: #effafa; }
+
+.container { display: flex; flex-direction: column; align-items: center; }
+
+.filter__box { display: none; }
+
+.filter__box.show { display: flex; justify-content: space-between; align-items: center; position: absolute; width: 75%; height: 75px; top: 100px; background-color: white; border-radius: 10px; box-shadow: 0 15px 35px rgba(91, 164, 164, 0.05), 0 10px 20px rgba(91, 164, 164, 0.15); }
+
+.filter__box.show ul { margin: 0 45px; padding: 0; }
+
+.filter__box.show ul li { list-style: none; float: left; padding: 10px; }
+
+.filter__box.show ul li button { display: flex; justify-content: space-between; align-items: center; cursor: default; padding: 0 0 0 10px; line-height: 2.5; }
+
+.filter__box.show ul li button i { width: 40px; cursor: pointer; line-height: 2.5; margin-left: 10px; color: white; background-color: #5ba4a4; border-top-right-radius: 5px; border-bottom-right-radius: 5px; }
+
+.filter__box.show ul li button i:hover { background-color: #2c3a3a; }
+
+.filter__box.show ul li:nth-child(1) { padding-left: 0; }
+
+.filter__box.show .filter__clear { margin: 0 45px; font-weight: 700; text-decoration: none; color: #5ba4a4; }
+
+.filter__box.show .filter__clear:hover { text-decoration: underline; }
 
 .section__list { width: 75%; margin: 50px 0; }
 
@@ -29,7 +51,9 @@ header .img--mobile { display: none; }
 
 .section__list ul li .job__info div div .note--featured { background-color: #2c3a3a; }
 
-.section__list ul li .job__info div .job__position { font-size: 20px; font-weight: 700; margin: 10px 0; }
+.section__list ul li .job__info div .job__position { font-size: 20px; font-weight: 700; margin: 10px 0; cursor: pointer; }
+
+.section__list ul li .job__info div .job__position:hover { color: #5ba4a4; }
 
 .section__list ul li .job__info div ul li { float: left; padding: 0 0 0 15px; margin: 0; color: #7b8e8e; box-shadow: none; }
 
@@ -37,4 +61,4 @@ header .img--mobile { display: none; }
 
 .section__list ul li .job__tags ul li { float: left; padding: 10px; box-shadow: none; }
 
-.section__list ul li .job__tags ul li button { border: 0; outline: 0; cursor: pointer; padding: 10px; border-radius: 5px; font-family: 'Spartan', sans-serif; font-size: 15px; font-weight: 700; color: #5ba4a4; background-color: #effafa; }
+.section__list ul li .job__tags button:hover { color: white; background-color: #5ba4a4; }
