@@ -39,6 +39,7 @@ function deleteFilter() {
   tags.splice(tags.indexOf(this.innerText), 1);
   if (tags.length === 0) {
     filter_box.classList.remove('show');
+    makeListTemplate();
   } else {
     makeFilterTemplate();
   }
@@ -47,7 +48,7 @@ function deleteFilter() {
 function addFilter() {
   tags.push(this.innerText);
 
-  //Remove duplicates
+  //중복 제거
   tags = tags.filter((element, index) => {
     return tags.indexOf(element) === index;
   });
@@ -59,6 +60,7 @@ function addFilter() {
 function clearFilter() {
   tags = [];
   filter_box.classList.remove('show');
+  makeListTemplate();
 }
 
 function makeListTemplate() {
