@@ -6,10 +6,7 @@ const filter_list = document.querySelector('.filter__list');
 const filter_clear = document.querySelector('.filter__clear');
 const job_list = document.querySelector('.job__list');
 let tags = [];
-let list,
-  job_list_item,
-  prev_temp,
-  prev_tags_len = 1;
+let job_list_item;
 
 function getData() {
   ajax.open('GET', './data.json', false);
@@ -52,7 +49,6 @@ function deleteFilter() {
 
 function addFilter() {
   tags.push(this.innerText);
-  prev_tags_len = tags.length <= 1 ? (prev_tags_len = 0) : tags.length - 1;
 
   //중복 제거
   tags = tags.filter((element, index) => {
@@ -133,31 +129,20 @@ function makeListTemplate() {
 
 function compareFilterList(list_item) {
   let temp = [];
-  console.log(tags.length);
-  console.log(prev_tags_len);
-  if (tags.length === 1) {
-    job_list_item = list_item.filter(
-      (item) => item.role.includes(`${tags}`) || item.level.includes(`${tags}`) || item.languages.some((v) => v.includes(`${tags}`)) || item.tools.some((v) => v.includes(`${tags}`))
-    );
-    list = job_list_item;
-  } else {
-    for (let i = 0; i < tags.length; i++) {
-      job_list_item = list.filter((item) => {
-        if (item.role === `${tags[i]}`) temp.push(item);
-        else if (item.level === `${tags[i]}`) temp.push(item);
-        else if (item.languages.some((v) => v.includes(`${tags[i]}`))) temp.push(item);
-        else if (item.tools.some((v) => v.includes(`${tags[i]}`))) temp.push(item);
-      });
-      if (i < tags.length && prev_tags_len < tags.length) {
-        prev_temp = list;
-      }
-      prev_tags_len > tags.length ? (list = prev_temp) : (list = temp);
-      job_list_item = list;
-      temp = [];
+
+  for (let i = 0; i < tags.length; i++) {
+    if (i === 0) {
+      job_list_item = list_item;
     }
-    console.log(prev_temp);
+    for (let j = 0; j < job_list_item.length; j++) {
+      if (JSON.stringify(job_list_item[j]).includes(`${tags[i]}`)) {
+        temp.push(job_list_item[j]);
+      }
+    }
+    job_list_item = temp;
+    temp = [];
   }
-  // list = job_list_item;
+
   return job_list_item;
 }
 
