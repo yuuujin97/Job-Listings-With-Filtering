@@ -45,7 +45,7 @@ button { border: 0; outline: 0; cursor: pointer; padding: 10px; border-radius: 5
 
 .section__list ul li .job__info div div .job__name { color: #5ba4a4; padding-right: 20px; }
 
-.section__list ul li .job__info div div .note { color: white; font-size: 10px; text-transform: uppercase; padding: 5px 7px; border-radius: 15px; }
+.section__list ul li .job__info div div .note { color: white; font-size: 10px; text-transform: uppercase; padding: 5px 7px; margin: 0 2px; border-radius: 15px; }
 
 .section__list ul li .job__info div div .note--new { background-color: #5ba4a4; }
 
@@ -62,3 +62,17 @@ button { border: 0; outline: 0; cursor: pointer; padding: 10px; border-radius: 5
 .section__list ul li .job__tags ul li { float: left; padding: 10px; box-shadow: none; }
 
 .section__list ul li .job__tags button:hover { color: white; background-color: #5ba4a4; }
+
+@media screen and (max-width: 70em) { header .img--desktop { display: none; }
+  header .img--mobile { display: block; }
+  .filter__box.show { width: 90%; }
+  .filter__box.show ul { margin: 0 0 0 20px; }
+  .filter__box.show .filter__clear { margin: 0 20px 0 0; }
+  .section__list { width: 90%; }
+  .section__list ul li { margin: 80px 0; padding: 30px 0; flex-direction: column; align-items: flex-start; }
+  .section__list ul li .job__info { padding: 20px 20px 20px 20px; }
+  .section__list ul li .job__info img { position: absolute; transform: translateX(0%) translateY(-130%); width: 60px; }
+  .section__list ul li .job__info div { padding: 0; }
+  .section__list ul li .job__info div .job__position { font-size: 15px; margin: 15px 0; }
+  .section__list ul li .job__tags ul { padding: 20px 20px 20px 10px; }
+  .section__list ul li .job__tags ul li { margin: 0; } }
