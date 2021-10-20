@@ -134,9 +134,9 @@ function compareFilterList(list_item) {
     if (i === 0) {
       job_list_item = list_item;
     }
-    for (let j = 0; j < job_list_item.length; j++) {
-      if (JSON.stringify(job_list_item[j]).includes(`${tags[i]}`)) {
-        temp.push(job_list_item[j]);
+    for (const item of job_list_item) {
+      if (JSON.stringify(item).includes(`${tags[i]}`)) {
+        temp.push(item);
       }
     }
     job_list_item = temp;
