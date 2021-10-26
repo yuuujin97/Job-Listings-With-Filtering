@@ -1,6 +1,6 @@
 # Frontend Mentor : Job Listings With Filtering
 
-⭐완성된 Challenges : https://yuuujin97.github.io/Sunnyside-Agency-Landing-Page/
+⭐완성된 Challenges : https://yuuujin97.github.io/Job-Listings-With-Filtering/
 
 ![](./screenshot/test.gif)
 
