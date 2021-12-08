@@ -6,7 +6,7 @@
 
 ---
 
-## [Frontend Mentor](https://www.frontendmentor.io) Challenges란
+## [Frontend Mentor](https://www.frontendmentor.io/challenges) Challenges란
 
 주어진 style-guide를 통해 design 폴더에 있는 설계와 최대한 비슷하게 만드는 것입니다.
 
